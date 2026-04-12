@@ -1,3 +1,12 @@
+ifeq ($(BT_ROOT),)
+BT_ROOT := $(srctree)/techpack/bt
+endif
+
+ifeq ($(CONFIG_ARCH_PARROT), y)
+include $(BT_ROOT)/config/parrotbt.conf
+LINUXINCLUDE += -include $(BT_ROOT)/config/parrotbtconf.h
+endif
+
 ifeq ($(CONFIG_MSM_BT_POWER),m)
 KBUILD_CPPFLAGS += -DCONFIG_MSM_BT_POWER
 endif
