@@ -1,3 +1,7 @@
+ifeq ($(BT_ROOT),)
+BT_ROOT := $(srctree)/techpack/bt
+endif
+
 ccflags-y += -I$(BT_ROOT)/include
 ccflags-y += -I$(BT_ROOT)/btfmcodec/include
 #Below src is for BTFM SLAVE CODEC Driver support on LE platform.
