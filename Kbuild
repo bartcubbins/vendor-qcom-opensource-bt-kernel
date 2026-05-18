@@ -2,6 +2,11 @@ ifeq ($(BT_ROOT),)
 BT_ROOT := $(srctree)/techpack/bt
 endif
 
+ifeq ($(CONFIG_ARCH_WAIPIO), y)
+include $(BT_ROOT)/config/waipiobt.conf
+LINUXINCLUDE += -include $(BT_ROOT)/config/waipiobtconf.h
+endif
+
 ifeq ($(CONFIG_ARCH_PARROT), y)
 include $(BT_ROOT)/config/parrotbt.conf
 LINUXINCLUDE += -include $(BT_ROOT)/config/parrotbtconf.h
